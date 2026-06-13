@@ -1,40 +1,72 @@
 # AgendaPro 📅
 
-Sistema de agendamento web para pequenos negócios (barbearias, clínicas, salões).
+Sistema web de agendamento para pequenos negócios como barbearias, clínicas e salões.
 
-## Funcionalidades
+> Desenvolvido com Python, Flask e SQLite — rodando 100% no navegador, sem instalação para o usuário final.
+
+---
+
+## 📸 Demonstração
+
+<!-- Adicione prints ou um GIF do sistema funcionando aqui -->
+<!-- Dica: arraste as imagens direto no editor do GitHub -->
+
+| Tela de Login | Agenda do Dia |
+|:---:|:---:|
+| ![login](prints/login.png) | ![agenda](prints/agenda.png) |
+
+| Clientes | Novo Agendamento |
+|:---:|:---:|
+| ![clientes](prints/clientes.png) | ![form](prints/form.png) |
+
+---
+
+## ✅ Funcionalidades
 
 - Login de administrador
-- Agenda por dia com filtro de data
+- Agenda do dia com filtro por data
 - Cadastro e gerenciamento de clientes
 - Cadastro de serviços com duração e preço
-- Criação e remoção de agendamentos
+- Criar e remover agendamentos
 
-## Tecnologias
+---
 
-- **Python 3** + **Flask**
-- **SQLite** (banco de dados local, sem instalação extra)
-- **HTML/CSS** puro
+## 🛠 Tecnologias
 
-## Como rodar
+- **Python 3**
+- **Flask** — framework web
+- **SQLite** — banco de dados local
+- **Jinja2** — templates HTML
+- **HTML + CSS** puro
+
+---
+
+## 🚀 Como rodar localmente
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/agendapro.git
+git clone https://github.com/JoaoBarreto3/agendapro.git
 cd agendapro
 
-# 2. Instale as dependências
+# 2. Crie e ative o ambiente virtual
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# 3. Instale as dependências
 pip install -r requirements.txt
 
-# 3. Rode o servidor
-python app.py
+# 4. Rode o servidor
+python3 app.py
 ```
 
 Acesse **http://localhost:5000**
 
 **Login padrão:** usuário `admin` / senha `admin123`
 
-## Estrutura do projeto
+---
+
+## 📁 Estrutura do Projeto
 
 ```
 agendamento/
@@ -54,10 +86,9 @@ agendamento/
     └── form_servico.html
 ```
 
-## Prints
+---
 
-> (adicione prints do sistema funcionando aqui)
+## 👨‍💻 Autor
 
-## Autor
-
-Feito por [seu nome] — [linkedin.com/in/seu-perfil]
+**João Barreto**
+[github.com/JoaoBarreto3](https://github.com/JoaoBarreto3)
