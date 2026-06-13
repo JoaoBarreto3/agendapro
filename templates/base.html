@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AgendaPro{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+{% if session.get('admin') %}
+<nav class="navbar">
+  <span class="logo">✂ AgendaPro</span>
+  <div class="nav-links">
+    <a href="{{ url_for('agendamentos') }}" {% if request.endpoint == 'agendamentos' %}class="active"{% endif %}>Agenda</a>
+    <a href="{{ url_for('clientes') }}"     {% if 'cliente' in request.endpoint %}class="active"{% endif %}>Clientes</a>
+    <a href="{{ url_for('servicos') }}"     {% if 'servico' in request.endpoint %}class="active"{% endif %}>Serviços</a>
+    <a href="{{ url_for('sair') }}" class="btn-sair">Sair</a>
+  </div>
+</nav>
+{% endif %}
+
+<main class="container">
+  {% with msgs = get_flashed_messages() %}
+    {% if msgs %}
+      {% for m in msgs %}
+        <div class="flash">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

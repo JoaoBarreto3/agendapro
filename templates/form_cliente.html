@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{% if cliente %}Editar Cliente{% else %}Novo Cliente{% endif %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h2>{% if cliente %}Editar Cliente{% else %}Novo Cliente{% endif %}</h2>
+  <a href="{{ url_for('clientes') }}" class="btn-sec">← Voltar</a>
+</div>
+
+<form method="post" class="form-card">
+  <div class="field">
+    <label>Nome</label>
+    <input type="text" name="nome" value="{{ cliente.nome if cliente else '' }}" required autofocus>
+  </div>
+  <div class="field">
+    <label>Telefone</label>
+    <input type="text" name="telefone" value="{{ cliente.telefone if cliente else '' }}" placeholder="(00) 00000-0000">
+  </div>
+  <button type="submit" class="btn">Salvar</button>
+</form>
+{% endblock %}

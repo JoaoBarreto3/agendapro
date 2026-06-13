@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Agenda do Dia{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h2>Agenda do Dia</h2>
+  <a href="{{ url_for('novo_agendamento') }}" class="btn">+ Novo agendamento</a>
+</div>
+
+<form method="get" class="date-filter">
+  <input type="date" name="data" value="{{ data }}" onchange="this.form.submit()">
+</form>
+
+{% if registros %}
+<table>
+  <thead>
+    <tr>
+      <th>Hora</th>
+      <th>Cliente</th>
+      <th>Serviço</th>
+      <th>Observação</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in registros %}
+    <tr>
+      <td><strong>{{ r.hora }}</strong></td>
+      <td>{{ r.cliente }}</td>
+      <td>{{ r.servico }}</td>
+      <td class="obs">{{ r.observacao }}</td>
+      <td>
+        <a href="{{ url_for('excluir_agendamento', id=r.id) }}"
+           class="btn-del"
+           onclick="return confirm('Remover este agendamento?')">Remover</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="empty">Nenhum agendamento para este dia.</div>
+{% endif %}
+{% endblock %}

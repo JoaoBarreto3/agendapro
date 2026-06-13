@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Serviços{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h2>Serviços</h2>
+  <a href="{{ url_for('novo_servico') }}" class="btn">+ Novo serviço</a>
+</div>
+
+{% if servicos %}
+<table>
+  <thead><tr><th>Nome</th><th>Duração</th><th>Preço</th><th></th></tr></thead>
+  <tbody>
+    {% for s in servicos %}
+    <tr>
+      <td>{{ s.nome }}</td>
+      <td>{{ s.duracao_min }} min</td>
+      <td>R$ {{ "%.2f"|format(s.preco) }}</td>
+      <td>
+        <a href="{{ url_for('editar_servico', id=s.id) }}" class="btn-sec-sm">Editar</a>
+        <a href="{{ url_for('excluir_servico', id=s.id) }}" class="btn-del"
+           onclick="return confirm('Remover {{ s.nome }}?')">Remover</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="empty">Nenhum serviço cadastrado ainda.</div>
+{% endif %}
+{% endblock %}
